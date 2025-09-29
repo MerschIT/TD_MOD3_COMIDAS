@@ -1,10 +1,5 @@
-// index.js
-const http = require('http');
+const axios = require('axios');
 
-const server = http.createServer((req, res) => {
-    res.end('Servidor funcionando!');
-});
-
-server.listen(3000, () => {
-    console.log('Servidor escuchando en http://localhost:3000');
-});
+axios('https://jsonplaceholder.typicode.com/users/1')
+    .then(response => console.log(response.data))
+    .catch(err => console.log(err));
